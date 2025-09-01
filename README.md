@@ -1,93 +1,79 @@
-# App del Clima (Flutter)
+# App Clima Flutter
 
-Aplicación móvil Flutter para consultar el clima actual y el pronóstico por horas de cualquier ciudad usando la API de OpenWeatherMap.
+Aplicación móvil desarrollada en Flutter para consultar el clima actual, pronóstico por hora y semanal de cualquier ciudad, guardar ciudades favoritas y recibir notificaciones. Utiliza la API de OpenWeatherMap y animaciones Lottie para una experiencia visual atractiva.
 
-## Demostración
+## Capturas de pantalla
 
-Pantalla principal:
+### Pantalla de inicio
+![Pantalla de inicio](screenshots/pagina%20de%20inicio%20.png)
+Muestra el clima actual, pronóstico por hora y semanal.
 
-![Pantalla principal](screenshots/home.png)
+### Favoritos
+![Favoritos](screenshots/pagina%20de%20favoritos.png)
+Lista de ciudades favoritas guardadas por el usuario.
 
-Búsqueda exitosa (ciudad válida):
+### Centro de búsqueda
+![Centro de búsqueda](screenshots/centro%20de%20busqueda.png)
+Permite buscar y seleccionar ciudades para consultar el clima.
 
-![Clima ciudad válida](screenshots/ciudad_valida.png)
+### Notificación de la app
+![Notificación de la app](screenshots/notificacion%20de%20la%20app.png)
+Ejemplo de notificación enviada por la app.
 
-Mensaje de error (ciudad inexistente):
+---
 
-![Ciudad inexistente](screenshots/ciudad_inexistente.png)
+## Herramientas y librerías utilizadas
+- **Flutter**: Framework principal para desarrollo multiplataforma.
+- **OpenWeatherMap API**: Fuente de datos meteorológicos.
+- **Lottie**: Animaciones de clima (sol, nubes, lluvia, etc.).
+- **http**: Peticiones a la API.
+- **shared_preferences**: Guardado de favoritos localmente.
+- **flutter_local_notifications**: Notificaciones locales.
+- **geolocator**: Ubicación del usuario (si se usa).
+- **intl**: Formateo de fechas y horas.
 
-
-## Características
-- Búsqueda de clima por ciudad con autocompletado.
-- Visualización de temperatura, descripción, ícono, humedad, viento, etc.
-- Pronóstico por horas para el día actual.
-- Mensajes de error claros si la ciudad no existe.
-- Interfaz elegante y responsiva.
-
-## Requisitos previos
-- Tener instalado [Flutter](https://docs.flutter.dev/get-started/install) en tu sistema.
-- Tener una cuenta en [GitHub](https://github.com/).
-- Tener una API Key de [OpenWeatherMap](https://openweathermap.org/api).
+## Estructura del proyecto
+- `lib/main.dart`: Punto de entrada, lógica principal y navegación.
+- `lib/components/`: Widgets reutilizables (tarjetas de clima, pronóstico, paneles, etc.).
+- `lib/services/`: Servicios para consumir la API y manejar notificaciones.
+- `lib/screens/`: Pantallas principales (inicio, favoritos, búsqueda).
+- `lib/utils/`: Utilidades (helpers de color, formateo, etc.).
+- `assets/lottie/`: Animaciones Lottie para los diferentes estados del clima.
+- `screenshots/`: Imágenes de ejemplo de la app.
 
 ## Instalación y ejecución local
 
-1. **Clona este repositorio** (o inicializa uno nuevo):
+1. **Clona el repositorio**
    ```sh
-   git clone https://github.com/Andrew3014/app-de-clima.git
-   cd app-de-clima
+   git clone <URL_DE_TU_NUEVO_REPO>
+   cd app_clima
    ```
-   O si ya tienes el proyecto local, inicializa git:
-   ```sh
-   git init
-   git remote add origin https://github.com/Andrew3014/app-de-clima.git
-   ```
-
-2. **Instala las dependencias:**
+2. **Instala las dependencias**
    ```sh
    flutter pub get
    ```
-
-3. **Configura tu API Key:**
-   - Abre el archivo `lib/main.dart`.
-   - Busca la línea:
-     ```dart
-     final String apiKey = 'AQUI_TU_API_KEY';
-     ```
-   - Coloca tu API Key de OpenWeatherMap entre comillas.
-
-4. **Activa el modo desarrollador en Windows (si es necesario):**
-   - Ejecuta en PowerShell:
-     ```sh
-     start ms-settings:developers
-     ```
-   - Activa "Modo de programador".
-
-5. **Ejecuta la app:**
-   - Con un emulador o dispositivo conectado:
-     ```sh
-     flutter run
-     ```
-
-## Subir el proyecto a GitHub
-
-1. **Agrega todos los archivos al repositorio:**
+3. **Configura tu API Key de OpenWeatherMap**
+   - Abre el archivo donde se define la API key (usualmente en `lib/services/weather_service.dart` o similar).
+   - Sustituye la clave por la tuya.
+4. **Ejecuta la app**
    ```sh
-   git add .
+   flutter run
    ```
-2. **Haz tu primer commit:**
-   ```sh
-   git commit -m "Proyecto app del clima Flutter"
-   ```
-3. **Sube los cambios a tu repositorio remoto:**
-   ```sh
-   git push -u origin main
-   ```
-   > Si tu rama principal se llama `master`, reemplaza `main` por `master`.
 
-## Notas
-- Si tienes problemas con dependencias, ejecuta `flutter pub get` nuevamente.
-- Si tienes problemas con permisos en Windows, asegúrate de tener el modo desarrollador activado.
-- Puedes personalizar el diseño y agregar más detalles del clima según tus necesidades.
+## Funcionalidades principales
+- Búsqueda de clima por ciudad con autocompletado.
+- Visualización de temperatura, descripción, ícono, humedad, viento, etc.
+- Pronóstico por horas y semanal.
+- Guardado de ciudades favoritas.
+- Notificaciones locales del clima.
+- Animaciones dinámicas según el estado del clima.
 
-## Licencia
-Este proyecto es solo para fines educativos.
+## Notas técnicas
+- El código es robusto ante datos numéricos que pueden venir como int, double o String desde la API.
+- Las animaciones de clima se seleccionan dinámicamente según la probabilidad de lluvia y el estado del clima.
+- El archivo `.gitignore` está configurado para no subir archivos temporales ni de build.
+- El proyecto es fácilmente portable a otros repositorios y sistemas.
+
+---
+
+
